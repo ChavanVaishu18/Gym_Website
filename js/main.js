@@ -23,19 +23,33 @@ document.querySelector("#contactForm").addEventListener("submit", async(e) => {
     console.log(e)
 
     let data = {
-        lname,
-        fanme,
-        phone,
-        address,
-        age,
-        address,
-        gender,
-        email,
-        memtype,
-        jdate,
-        edate,
-        message
+    "First Name": fanme,
+    "Last Name": lname,
+    "Email": email,
+    "Phone": null,
+    "Address": address,
+    "Age": null,
+    "Gender": null,
+    "MembershipType": null, 
+    "JoinDate": null,
+    "MembershipExpiry": null,
+    "Remark": message
     }
+
+    // let data = {
+    //     lname,
+    //     fanme,
+    //     phone,
+    //     address,
+    //     age,
+    //     address,
+    //     gender,
+    //     email,
+    //     memtype,
+    //     jdate,
+    //     edate,
+    //     message
+    // }
 
     const { error } = await supabase
         .from('gymuser')
@@ -48,4 +62,3 @@ document.querySelector("#contactForm").addEventListener("submit", async(e) => {
 
     console.log('Data is inserted !')
 })
-
