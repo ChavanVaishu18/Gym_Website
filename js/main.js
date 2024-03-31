@@ -5,17 +5,17 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
 
 console.log(createClient)
 
-let fanme = document.querySelector('[name="fnmae"]').value
-let lname = document.querySelector('[name="lname"]').value
-let email = document.querySelector('[name="email"]').value
-let phone = document.querySelector('[name="phone"]').value
-let address = document.querySelector('[name="address"]').value
-let age = document.querySelector('[name="age"]').value
-let gender = document.querySelector('[name="gender"]').value
-let memtype = document.querySelector('[name="memtype"]').value
-let jdate = document.querySelector('[name="jdate"]').value
-let edate = document.querySelector('[name="edate"]').value
-let message = document.querySelector('[name="message"]').value
+let fanme = document.querySelector('[name="fnmae"]')
+let lname = document.querySelector('[name="lname"]')
+let email = document.querySelector('[name="email"]')
+let phone = document.querySelector('[name="phone"]')
+let address = document.querySelector('[name="address"]')
+let age = document.querySelector('[name="age"]')
+let gender = document.querySelector('[name="gender"]')
+let memtype = document.querySelector('[name="memtype"]')
+let jdate = document.querySelector('[name="jdate"]')
+let edate = document.querySelector('[name="edate"]')
+let message = document.querySelector('[name="message"]')
 
 document.querySelector("#contactForm").addEventListener("submit", async(e) => {
     e.preventDefault()
@@ -23,17 +23,17 @@ document.querySelector("#contactForm").addEventListener("submit", async(e) => {
     console.log(e)
 
     let data = {
-    "First Name": fanme,
-    "Last Name": lname,
-    "Email": email,
-    "Phone": null,
-    "Address": address,
-    "Age": null,
+    "First Name": fanme.value,
+    "Last Name": lname.value,
+    "Email": email.value,
+    "Phone": +phone.value,
+    "Address": address.value,
+    "Age": +age.value,
     "Gender": null,
     "MembershipType": null, 
     "JoinDate": null,
     "MembershipExpiry": null,
-    "Remark": message
+    "Remark": message.value
     }
 
     console.log(data)
