@@ -5,8 +5,6 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
 
 console.log(createClient)
 
-let contactFrom = document.querySelector("#contactForm")
-
 let fanme = document.querySelector('[name="fnmae"]').value
 let lname = document.querySelector('[name="lname"]').value
 let email = document.querySelector('[name="email"]').value
@@ -19,9 +17,7 @@ let jdate = document.querySelector('[name="jdate"]').value
 let edate = document.querySelector('[name="edate"]').value
 let message = document.querySelector('[name="message"]').value
 
-
-
-contactFrom.addEventListener("submit", async (e) => {
+document.querySelector("#contactForm").addEventListener("submit", async(e) => {
     e.preventDefault()
 
     console.log(e)
@@ -46,7 +42,7 @@ contactFrom.addEventListener("submit", async (e) => {
         .insert(data)
 
     if (error) {
-        console.log('Error Occured : ', e)
+        console.log('Error Occured : ', error)
         return
     }
 
