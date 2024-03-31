@@ -36,6 +36,8 @@ document.querySelector("#contactForm").addEventListener("submit", async(e) => {
     "Remark": message
     }
 
+    console.log(data)
+
     // let data = {
     //     lname,
     //     fanme,
