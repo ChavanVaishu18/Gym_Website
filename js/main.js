@@ -5,62 +5,40 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
 
 console.log(createClient)
 
+let contactFrom = document.querySelector("#contactForm")
+
 let fanme = document.querySelector('[name="fnmae"]')
 let lname = document.querySelector('[name="lname"]')
 let email = document.querySelector('[name="email"]')
 let phone = document.querySelector('[name="phone"]')
-let address = document.querySelector('[name="address"]')
-let age = document.querySelector('[name="age"]')
-let gender = document.querySelector('[name="gender"]')
-let memtype = document.querySelector('[name="memtype"]')
-let jdate = document.querySelector('[name="jdate"]')
-let edate = document.querySelector('[name="edate"]')
 let message = document.querySelector('[name="message"]')
 
-document.querySelector("#contactForm").addEventListener("submit", async(e) => {
+
+
+contactFrom.addEventListener("submit", async (e) => {
     e.preventDefault()
 
     console.log(e)
 
     let data = {
-    "First Name": fanme.value,
-    "Last Name": lname.value,
-    "Email": email.value,
-    "Phone": +phone.value,
-    "Address": address.value,
-    "Age": +age.value,
-    "Gender": null,
-    "MembershipType": null, 
-    "JoinDate": null,
-    "MembershipExpiry": null,
-    "Remark": message.value
+        "First Name": lname.value,
+        "Last Name": fanme.value,
+        "Phone": +phone.value,
+        "Email": email.value,
+        "Remark": message.value
     }
 
-    console.log(data)
-
-    // let data = {
-    //     lname,
-    //     fanme,
-    //     phone,
-    //     address,
-    //     age,
-    //     address,
-    //     gender,
-    //     email,
-    //     memtype,
-    //     jdate,
-    //     edate,
-    //     message
-    // }
+    console.log("data : ", data)
 
     const { error } = await supabase
         .from('gymuser')
         .insert(data)
 
     if (error) {
-        console.log('Error Occured : ', error)
+        console.log('Error Occured : ', e)
         return
     }
 
     console.log('Data is inserted !')
 })
+
