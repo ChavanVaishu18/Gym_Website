@@ -20,7 +20,7 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
                     <td>${el.PlanName}</td>
                     <td>${el.price}</td>
                     <td>
-                        <button class="btn">Join Now</button>
+                        <a href="./JoinNow.html" class="btn">Join Now</a>
                     </td>
            `
 
