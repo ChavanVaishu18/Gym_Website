@@ -8,6 +8,17 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
     // 
     let contact_form = document.querySelector("#contact_form")
     let msg = document.querySelector("#msg")
+    let _membership = document.querySelector('[id="Membership Type"]')
+
+    // add the membership detail in the form
+    function addMembership(data) {
+        data.forEach(el => {
+            let option = document.createElement("option")
+            option.value = el.PlanName
+            option.textContent = el.PlanName
+            _membership.appendChild(option)
+        })
+    }
 
     // Assuming you have a FormEvent object named 'event'
     function getAllFormData(event) {
@@ -42,7 +53,10 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
             "Remark": formData.message
         };
 
+        // sending data to database
         let { data, error } = await supabase.from("gymuser").insert(finalData)
+
+        // INSERT DATA INTO gymuser VALUES (".......")
 
         if(!error) {
             console.log("User add successfully!")
@@ -58,5 +72,31 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
     // supabase.from('gymuser').select('*').then(result => {
     //     console.log(result.data[0])
     // })
+
+    const fetchData = async () => {
+        try {
+
+            let { data, error } = await supabase
+                .from('membershipplans')
+                .select('*')
+            
+                // SELECT * FROM membershipplans
+
+            console.log(data)
+
+            if (error) {
+                console.log('Error Occured : ', e)
+                return
+            }
+
+            addMembership(data)
+
+            return data
+        } catch (e) {
+
+        }
+    }
+
+    fetchData()
 
 })()

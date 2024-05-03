@@ -8,8 +8,7 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
 
     console.log("hit Js")
 
-    // fetch all the membership data
-
+    // present the membership details into page
     const renderData = (data) => {
         console.log("The Data : ", data)
         data.forEach(el => {
@@ -42,12 +41,15 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
         // });
     }
 
+    // fetch the data from the database
     const fetchData = async () => {
         try {
 
             let { data, error } = await supabase
                 .from('membershipplans')
                 .select('*')
+            
+                // SELECT * FROM membershipplans
 
             console.log(data)
 
