@@ -15,7 +15,7 @@ const supabase = createClient('https://odmendupuvileyrcvffj.supabase.co', 'eyJhb
             console.log(el)
             let tr = document.createElement('tr')
             tr.innerHTML = `
-                    <td>${el.PlanID}</td>
+                    <td>${el.Membership_id}</td>
                     <td>${el.PlanName}</td>
                     <td>${el.price}</td>
                     <td>
